@@ -14,9 +14,9 @@
 		<div id="header">
 			<h1>Spring 이야기</h1>
 			<ul>
-				<li><a href="">로그인</a></li>
-				<li><a href="">로그아웃</a></li>
-				<li><a href="">블로그 관리</a></li>
+				<li><a href="${pageContext.request.contextPath }/user/login">로그인</a></li>
+				<li><a href="${pageContext.request.contextPath }/index">로그아웃</a></li>
+				<li><a href="${pageContext.request.contextPath }/blog/admin-basic">블로그 관리</a></li>
 			</ul>
 		</div>
 		<div id="wrapper">
@@ -56,11 +56,7 @@
 			</ul>
 		</div>
 		
-		<div id="footer">
-			<p>
-				<strong>Spring 이야기</strong> is powered by JBlog (c)2016
-			</p>
-		</div>
+		<c:import url="/WEB-INF/views/includes/footer.jsp" />
 	</div>
 </body>
 </html>
