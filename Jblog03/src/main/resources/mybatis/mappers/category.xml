@@ -1,8 +1,30 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="category">
+	
 	<insert id="insert" parameterType="categoryvo">
 		<![CDATA[
 		insert into category values(null, #{id}, '스프링 프로젝트');
 		]]>
 	</insert>
+	
+	<select id="findAll" resultType="categoryvo" parameterType="String">
+		<![CDATA[
+		select * from category where id = #{id}
+		]]>
+	</select>
+	
+	<insert id="insertCategory" parameterType="categoryvo">
+		<![CDATA[
+		insert into category values(null, #{id}, #{name})
+		]]>
+	</insert>
+	
+	<delete id="deleteByCategory" parameterType="long">
+ 		<![CDATA[
+ 		delete 
+ 			from category
+ 		  where no = ${no }
+ 		]]>
+ 	</delete>
+	
 </mapper>

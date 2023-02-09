@@ -1,8 +1,31 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="blog">
-		<insert id="insert" parameterType="blogvo">
+
+	<select id="find" resultType="blogvo" parameterType="String">
 		<![CDATA[
-		insert into blog values(#{id}, '기본 제목', '기본 프로필');
+		select * from blog where id = #{id}
+		]]>
+	</select>
+	
+	<insert id="insert" parameterType="blogvo">
+		<![CDATA[
+		insert into blog values(#{id}, '기본 제목입니다', '/assets/images/20231913729588.jpg');
 		]]>
 	</insert>
+	
+ 	<update id="updateblog" parameterType="blogvo">
+		<![CDATA[
+		update blog
+			set id=#{id }, title=#{title }, 
+			profile=#{profile } 
+		 where id=#{id}
+		
+		]]>	
+	</update>
+	
+	<select id="findByNo" resultType="blogvo">
+		<![CDATA[
+		select c.no, p.title, p.contents, p.reg_date, c.id  from post as p left outer join category as c on p.category_no = c.no;
+		]]>
+	</select>
 </mapper>

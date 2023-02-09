@@ -58,7 +58,7 @@
 	</bean>
 	
 	<!-- mvc url-resource mapping -->
-	<mvc:resources mapping="/assets/upload-images/**" location="file:/jblog-uploads/" />
+	<mvc:resources mapping="/assets/images/**" location="file:/jblog-uploads/" />
 	
 	<context:annotation-config />
 	<context:component-scan base-package="com.douzone.jblog.controller" />
