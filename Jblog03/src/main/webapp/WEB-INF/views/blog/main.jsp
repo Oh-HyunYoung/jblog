@@ -37,7 +37,7 @@
 				<ul class="blog-list">
 				<c:set var="count" value="${fn:length(postvo) }" />
 				<c:forEach items="${postvo }" var ="pvo" varStatus="status">
-					<li><a href="">${pvo.title }</a> <span>${pvo.reg_date }</span></li>
+					<li><a href="${pageContext.request.contextPath}/blog/main/${vo.id}/${vo.no}/${pvo.no}">${pvo.title }</a> <span>${pvo.reg_date }</span></li>
 				</c:forEach>
 				</ul>
 			</div>
@@ -53,7 +53,7 @@
 			<h2>카테고리</h2>
 			<c:set var="count" value="${fn:length(list) }" />
 			<c:forEach items="${list }" var ="vo" varStatus="status">
-			<ul><li><a href="">${vo.name }</a></li></ul>
+			<ul><li><a href="${pageContext.request.contextPath}/blog/main/${vo.id}/${vo.no}">${vo.name }</a></li></ul>
 			</c:forEach>
 		</div>
 		<c:import url="/WEB-INF/views/includes/footer.jsp" />

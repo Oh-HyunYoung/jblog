@@ -38,6 +38,7 @@ public class BlogController {
 	
 	@RequestMapping("/main/{id}")
 	public String main(@PathVariable("id") String id, 
+			@RequestParam(value="no", required=true, defaultValue="") Long no,
 			PostVo vo,
 			Model model) {
 		BlogVo blogvo = blogService.findBlog(id);
