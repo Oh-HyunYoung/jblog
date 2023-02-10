@@ -19,9 +19,11 @@
 					<li><a href="${pageContext.request.contextPath }/user/login">로그인</a><li>
 				</c:when>
 				<c:otherwise>
-					<li><a href="${pageContext.request.contextPath }/blog/main/${id}">메인화면</a></li>
+					<li><a href="${pageContext.request.contextPath }/${id}/blog/main">메인화면</a></li>
 					<li><a href="${pageContext.request.contextPath }/index">로그아웃</a></li>
-					<li><a href="${pageContext.request.contextPath }/blog/admin-basic/${id}">블로그 관리</a></li>
+					<c:if test="${authUser.id == id } ">
+					<li><a href="${pageContext.request.contextPath }/${id}/blog/admin-basic">블로그 관리</a></li>
+					</c:if>
 				</c:otherwise>
 			</c:choose>	
 			</ul>
@@ -29,9 +31,9 @@
 		<div id="wrapper">
 			<div id="content" class="full-screen">
 				<ul class="admin-menu">
-					<li><a href="${pageContext.request.contextPath }/blog/admin-basic/${id}">기본설정</a></li>
+					<li><a href="${pageContext.request.contextPath }/${id}/blog/admin-basic">기본설정</a></li>
 					<li class="selected">카테고리</li>
-					<li><a href="${pageContext.request.contextPath }/blog/admin-write/${id}">글작성</a></li>
+					<li><a href="${pageContext.request.contextPath }/${id}/blog/admin-write">글작성</a></li>
 				</ul>
 		      	<table class="admin-cat">
 		      		<tr>
@@ -50,7 +52,7 @@
 						<td>카테고리를 지정하지 않은 경우</td>
 						<c:choose>
 								<c:when test="${list.size() > 1 }">
-							<td><a href="${pageContext.request.contextPath}/blog/admin-category/${id}/delete/${vo.no}" class="del">
+							<td><a href="${pageContext.request.contextPath}/${id}/blog/admin-category/delete/${vo.no}" class="del">
 							<img src="${pageContext.request.contextPath}/assets/images/delete.jpg" class="del"></a></td>
 								</c:when>
 							<c:otherwise>
@@ -60,7 +62,7 @@
 					</tr>  
 		</c:forEach> 
 				</table>
-      	<form action="${pageContext.request.contextPath }/blog/admin-category/${id}" method="post"  enctype="multipart/form-data">
+      	<form action="${pageContext.request.contextPath }/${id}/blog/admin-category" method="post"  enctype="multipart/form-data">
       			<h4 class="n-c">새로운 카테고리 추가</h4>
 		      	<table id="admin-cat-add">
 		      		<tr>

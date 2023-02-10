@@ -19,9 +19,11 @@
 					<li><a href="${pageContext.request.contextPath }/user/login">로그인</a><li>
 				</c:when>
 				<c:otherwise>
-					<li><a href="${pageContext.request.contextPath }/blog/main/${id}">메인화면</a></li>
+					<li><a href="${pageContext.request.contextPath }/${id}/blog/main">메인화면</a></li>
 					<li><a href="${pageContext.request.contextPath }/index">로그아웃</a></li>
-					<li><a href="${pageContext.request.contextPath }/blog/admin-basic/${id}">블로그 관리</a></li>
+					<c:if test="${authUser.id == id } ">
+					<li><a href="${pageContext.request.contextPath }/${id}/blog/admin-basic">블로그 관리</a></li>
+					</c:if>
 				</c:otherwise>
 			</c:choose>	
 			</ul>
@@ -29,13 +31,13 @@
 		<div id="wrapper">
 			<div id="content" class="full-screen">
 				<ul class="admin-menu">
-					<li><a href="${pageContext.request.contextPath }/blog/admin-basic/${id}">기본설정</a></li>
-					<li><a href="${pageContext.request.contextPath }/blog/admin-category/${id}">카테고리</a></li>
+					<li><a href="${pageContext.request.contextPath }/${id}/blog/admin-basic">기본설정</a></li>
+					<li><a href="${pageContext.request.contextPath }/${id}/blog/admin-category">카테고리</a></li>
 					<li class="selected">글작성</li>
 				</ul>
 			<c:set var="count" value="${fn:length(list) }" />
 			
-				<form action="${pageContext.request.contextPath }/blog/admin-write/${id}" method="post" enctype="multipart/form-data">
+				<form action="${pageContext.request.contextPath }/${id}/blog/admin-write" method="post" enctype="multipart/form-data">
 			      	<table class="admin-cat-write">
 			      	
 			      		<tr>

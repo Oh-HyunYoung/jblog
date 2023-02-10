@@ -1,6 +1,7 @@
 package com.douzone.jblog.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,5 +29,9 @@ public class CategoryRepository {
 	
 	public void deleteByCategory(Long no) {
 		sqlSession.delete("category.deleteByCategory",no);
+	}
+
+	public void findByCategoryNo(Long pathNo1) {
+		sqlSession.selectOne("category.findByCategoryNo",pathNo1);
 	}
 }

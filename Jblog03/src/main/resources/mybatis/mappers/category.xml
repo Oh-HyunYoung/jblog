@@ -26,5 +26,11 @@
  		  where no = ${no }
  		]]>
  	</delete>
+
+ 	<select id="findByCategoryNo" resultType="categoryvo" parameterType="Long">
+		<![CDATA[
+		select * from category where no = #{no}
+		]]>
+	</select>
 	
 </mapper>

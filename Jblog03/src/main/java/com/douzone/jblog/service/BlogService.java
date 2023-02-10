@@ -30,6 +30,14 @@ public class BlogService {
 		return blogRepository.findPost();
 	}
 
+	public List<PostVo> findPostNo(Long categoryNo) {
+		return blogRepository.findPostNo(categoryNo);
+	}
+	
+	
+	public PostVo Postfindbyno(Long postNo) {
+		return blogRepository.Postfindbyno(postNo);
+	}
 
 	
 	

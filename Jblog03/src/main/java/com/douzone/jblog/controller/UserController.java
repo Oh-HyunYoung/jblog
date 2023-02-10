@@ -35,36 +35,14 @@ public class UserController {
 	public String joinSuccess() {
 		return "user/joinsuccess";
 	}
-	
-//	@RequestMapping("/login")
-//	public String login() {
-//		return "user/login";
-//	}
+
 	
 	@RequestMapping("/login")
 	public String login() {
 		return "user/login";
 	}
 	
-//	@RequestMapping(value="/login", method=RequestMethod.POST)
-//	public String login(@PathVariable String id,
-//			HttpServletRequest request, HttpServletResponse response,
-//			Model model) {
-//	
-//		UserVo authUser = userService.getUser(vo);
-//		
-//		if(authUser == null) {
-//			return "redirect:/user/login";
-//		}
-//		
-//		HttpSession session = request.getSession(true);
-//		session.setAttribute("authUser", authUser);
-//	
-//		System.out.println(id+" : "+ password);
-//		System.out.println(authUser);
-//
-//		return "redirect:/user/login";
-//	}
+
 	
 
 }

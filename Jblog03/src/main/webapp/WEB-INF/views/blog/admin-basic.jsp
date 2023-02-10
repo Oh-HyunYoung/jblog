@@ -19,9 +19,11 @@
 					<li><a href="${pageContext.request.contextPath }/user/login">로그인</a><li>
 				</c:when>
 				<c:otherwise>
-					<li><a href="${pageContext.request.contextPath }/blog/main/${id}">메인화면</a></li>
+					<li><a href="${pageContext.request.contextPath }/${id}/blog/main">메인화면</a></li>
 					<li><a href="${pageContext.request.contextPath }/index">로그아웃</a></li>
-					<li><a href="${pageContext.request.contextPath }/blog/admin-basic/${id}">블로그 관리</a></li>
+					<c:if test="${authUser.id == id } ">
+					<li><a href="${pageContext.request.contextPath }/${id}/blog/admin-basic">블로그 관리</a></li>
+					</c:if>
 				</c:otherwise>
 			</c:choose>	
 			</ul>
@@ -30,10 +32,10 @@
 			<div id="content" class="full-screen">
 				<ul class="admin-menu">
 					<li class="selected">기본설정</li>
-					<li><a href="${pageContext.request.contextPath }/blog/admin-category/${id}">카테고리</a></li>
-					<li><a href="${pageContext.request.contextPath }/blog/admin-write/${id}">글작성</a></li>
+					<li><a href="${pageContext.request.contextPath }/${id}/blog/admin-category">카테고리</a></li>
+					<li><a href="${pageContext.request.contextPath }/${id}/blog/admin-write">글작성</a></li>
 				</ul>
-				<form action="${pageContext.request.contextPath }/blog/upload/${id}" method="post"  enctype="multipart/form-data">
+				<form action="${pageContext.request.contextPath }/${id}/blog/upload" method="post"  enctype="multipart/form-data">
 	 		      	<table class="admin-config">
 			      		<tr>
 			      			<td class="t">블로그 제목</td>

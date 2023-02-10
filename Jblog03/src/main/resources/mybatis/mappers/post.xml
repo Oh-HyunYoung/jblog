@@ -11,4 +11,17 @@
 		select * from post 
 		]]>
 	</select>
+	
+	<select id="findbyno" parameterType="Long" resultType="postvo" >
+		<![CDATA[
+		select * from post where category_no = #{categoryNo}
+		]]>
+	</select>
+	
+	<select id="Postfindbyno" parameterType="Long" resultType="postvo" >
+		<![CDATA[
+		select * from post where no = #{postNo}
+		]]>
+	</select>
+	
 </mapper>
