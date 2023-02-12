@@ -22,13 +22,12 @@
 				]]>
 			</when>
 			<otherwise>
-		<![CDATA[
-		update blog
-			set id=#{id }, title=#{title }, 
-			profile=#{profile } 
-		 where id=#{id}
-		
-		]]>	
+			<![CDATA[
+			update blog
+				set id=#{id }, title=#{title }, 
+				profile=#{profile } 
+			 where id=#{id}
+			]]>	
 		</otherwise>
 		</choose>
 	</update>

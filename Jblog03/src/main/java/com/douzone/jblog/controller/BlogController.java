@@ -56,13 +56,8 @@ public class BlogController {
 			
 			List<CategoryVo> list = categoryService.findCategory(id);
 			List<PostVo> postList = blogService.findPostNo(categoryNo);
-			System.out.println(postList);
-			System.out.println("cccc" + categoryNo);
-			
-			
 			
 			PostVo post = blogService.Postfindbyno(postNo);
-			System.out.println(post);
 			model.addAttribute("post",post);
 			model.addAttribute("postList", postList);
 			model.addAttribute("list",list);
@@ -159,7 +154,6 @@ public class BlogController {
 	@RequestMapping(value="/admin-write", method=RequestMethod.POST)
 	public String write(PostVo vo,
 			@PathVariable("id") String id) {
-		System.out.println("post"+vo);
 		blogService.insertPost(vo);
 		return "redirect:/"+ id + "/blog/admin-write";
 	}

@@ -24,10 +24,6 @@ public class BlogRepository {
 		sqlSession.insert("blog.insert", vo);
 	   }
 	
-//	public void insertByUrl(BlogVo vo) {
-//		sqlSession.insert("blog.insertByUrl",vo);
-//	}
-	
 	public void updateblog(BlogVo vo) {
 		sqlSession.update("blog.updateblog",vo);
 	}
