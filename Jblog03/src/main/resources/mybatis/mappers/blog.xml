@@ -14,6 +14,14 @@
 	</insert>
 	
  	<update id="updateblog" parameterType="blogvo">
+ 	<choose>
+			<when test='profile == ""'>
+			<![CDATA[
+					update blog 
+						set id=#{id }, title=#{title } where id=#{id}
+				]]>
+			</when>
+			<otherwise>
 		<![CDATA[
 		update blog
 			set id=#{id }, title=#{title }, 
@@ -21,6 +29,8 @@
 		 where id=#{id}
 		
 		]]>	
+		</otherwise>
+		</choose>
 	</update>
 	
 	<select id="findByNo" resultType="blogvo">
