@@ -118,7 +118,7 @@ public class BlogController {
 		
 		blogService.updateBlog(vo);
 		servletContext.setAttribute("blogvo", vo);
-		return "redirect:"+ id + "/blog/admin-basic";
+		return "redirect:/"+ id + "/blog/admin-basic";
 	}
 	
 	@RequestMapping(value="/admin-category", method=RequestMethod.GET)
