@@ -37,6 +37,7 @@ public class BlogController {
 	@Autowired
 	private CategoryService categoryService;
 	
+	// blog main 화면
 	@RequestMapping({"/main","/main/{cno}","/main/{cno}/{pno}"})
 	public String main(@PathVariable("id") String id,  
 			@PathVariable("cno") Optional<Long> cno,
@@ -47,6 +48,7 @@ public class BlogController {
 		BlogVo blogvo = blogService.findBlog(id);
 		model.addAttribute("id",id);
 		
+		// main/{cno}/{pno}
 		if(pno.isPresent()) {
 			Long categoryNo = cno.get();
 			Long postNo = pno.get();
@@ -61,7 +63,8 @@ public class BlogController {
 			model.addAttribute("post",post);
 			model.addAttribute("postList", postList);
 			model.addAttribute("list",list);
-
+		
+		// main/{cno}
 		} else if(cno.isPresent()) {
 			List<CategoryVo> list = categoryService.findCategory(id);
 			
@@ -72,7 +75,8 @@ public class BlogController {
 			
 			List<PostVo> postList = blogService.findPostNo(categoryNo);
 			model.addAttribute("postList", postList);
-			
+		
+		// main
 		} else {
 			model.addAttribute("blogvo",blogvo);
 			model.addAttribute("id",id);
@@ -88,6 +92,7 @@ public class BlogController {
 		return "blog/main";
 	}
 	
+	// basic의 기존 데이터 불러오기
 	@RequestMapping(value="/admin-basic", method=RequestMethod.GET)
 	public String basic(
 			@PathVariable("id") String id, 
@@ -98,6 +103,7 @@ public class BlogController {
 		return "blog/admin-basic";
 	}
 	
+	// basic 제목, 파일 업로드
 	@RequestMapping(value = "/upload", method=RequestMethod.POST)
 	public String basic(BlogVo vo,
 			@PathVariable("id") String id,
@@ -116,16 +122,22 @@ public class BlogController {
 		return "redirect:/"+ id + "/blog/admin-basic";
 	}
 	
+	// 카테고리 리스트 불러오기
 	@RequestMapping(value="/admin-category", method=RequestMethod.GET)
 	public String category(
 			@PathVariable("id") String id, 
 			Model model) {
+		// blog title을 위해 넣어줌
+		BlogVo blogvo = blogService.findBlog(id);
+		model.addAttribute("blogvo",blogvo);
+		
 		List<CategoryVo> list = categoryService.findCategory(id);
 		model.addAttribute("list",list);
 		model.addAttribute("id",id);
 		return "blog/admin-category";
 	}
 	
+	// 새로운 카테고리 추가
 	@RequestMapping(value="/admin-category", method=RequestMethod.POST)
 	public String category(CategoryVo vo,
 			@PathVariable("id") String id, 
@@ -134,6 +146,7 @@ public class BlogController {
 		return "redirect:/"+ id + "/blog/admin-category";
 	}
 	
+	// 카테고리 삭제
 	@RequestMapping(value="/admin-category/delete/{no}")
 	public String delete(@PathVariable("no") Long no, 
 			@PathVariable("id") String id,
@@ -142,15 +155,21 @@ public class BlogController {
 		return "redirect:/"+ id + "/blog/admin-category";
 	}
 	
+	// 글작성의 카테고리 리스트 불러오기
 	@RequestMapping(value="/admin-write", method=RequestMethod.GET)
 	public String write(PostVo vo,
 			@PathVariable("id") String id,
 			Model model) {
+		// blog title을 위해 넣어줌
+		BlogVo blogvo = blogService.findBlog(id);
+		model.addAttribute("blogvo",blogvo);
+		
 		List<CategoryVo> list = categoryService.findCategory(id);
 		model.addAttribute("list",list);
 		return "blog/admin-write";
 	}
 	
+	// 제목 및 내용 삽입
 	@RequestMapping(value="/admin-write", method=RequestMethod.POST)
 	public String write(PostVo vo,
 			@PathVariable("id") String id) {
