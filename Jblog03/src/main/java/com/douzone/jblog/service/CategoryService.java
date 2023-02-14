@@ -28,11 +28,9 @@ public class CategoryService {
 		categoryRepository.deleteByCategory(no);
 	}
 
-	public void findCategoryNo(Long pathNo1) {
-		categoryRepository.findByCategoryNo(pathNo1);
-	}
+
 	
-	public CategoryVo CountPostCategoryNo(CategoryVo vo) {
-		return categoryRepository.CountPostCategoryNo(vo);
+	public List<CategoryVo> countPostNo(String id) {
+		return categoryRepository.countPostNo(id);
 	}
 }

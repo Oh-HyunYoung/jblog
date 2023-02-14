@@ -131,9 +131,7 @@ public class BlogController {
 		BlogVo blogvo = blogService.findBlog(id);
 		model.addAttribute("blogvo",blogvo);
 		
-//		CategoryVo cpovo = categoryService.CountPostCategoryNo(vo);
-//		model.addAttribute("cpovo",cpovo);
-		List<CategoryVo> list = categoryService.findCategory(id);
+		List<CategoryVo> list = categoryService.countPostNo(id);
 		model.addAttribute("list",list);
 		model.addAttribute("id",id);
 		return "blog/admin-category";

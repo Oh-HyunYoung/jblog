@@ -33,4 +33,16 @@
 		]]>
 	</select>
 	
+	<select id="countPostNo" resultType="categoryvo" parameterType="String">
+		<![CDATA[
+		      select a.no, a.name, a.id, count(b.no) as p_count
+			         from category a
+			         left join post b
+			         on a.no = b.category_no
+			         where id = #{id }
+			         group by a.no
+			         order by a.no desc
+		]]>
+	</select>
+	
 </mapper>

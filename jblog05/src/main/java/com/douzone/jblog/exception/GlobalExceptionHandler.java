@@ -7,6 +7,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
@@ -19,6 +20,11 @@ public class GlobalExceptionHandler {
 		
 		// 1. 404 Error 처리
 		if(e instanceof NoHandlerFoundException) {
+			ModelAndView mav = new ModelAndView();
+			mav.setViewName("error/404");
+			
+			return mav;
+		} else if(e instanceof MethodArgumentTypeMismatchException) {
 			ModelAndView mav = new ModelAndView();
 			mav.setViewName("error/404");
 			

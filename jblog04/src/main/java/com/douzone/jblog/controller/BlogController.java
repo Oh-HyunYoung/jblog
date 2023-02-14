@@ -125,13 +125,13 @@ public class BlogController {
 	// 카테고리 리스트 불러오기
 	@RequestMapping(value="/admin-category", method=RequestMethod.GET)
 	public String category(
-			@PathVariable("id") String id, 
+			@PathVariable("id") String id, CategoryVo vo,
 			Model model) {
 		// blog title을 위해 넣어줌
 		BlogVo blogvo = blogService.findBlog(id);
 		model.addAttribute("blogvo",blogvo);
 		
-		List<CategoryVo> list = categoryService.findCategory(id);
+		List<CategoryVo> list = categoryService.countPostNo(id);
 		model.addAttribute("list",list);
 		model.addAttribute("id",id);
 		return "blog/admin-category";

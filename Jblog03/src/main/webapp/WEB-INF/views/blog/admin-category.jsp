@@ -30,9 +30,9 @@
 		 <c:set var="count" value="${fn:length(list) }" />
 		<c:forEach items="${list }" var ="vo" varStatus="status">
 					<tr>
-						<td>${status.index +1 }</td>
+						<td>${count-status.index }</td>
 						<td>${vo.name }</td>
-						<td>0</td>
+						<td>${vo.p_count }</td>
 						<td>카테고리를 지정하지 않은 경우</td>
 						<c:choose>
 								<c:when test="${list.size() > 1 }">

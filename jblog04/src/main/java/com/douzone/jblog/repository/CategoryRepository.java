@@ -31,7 +31,7 @@ public class CategoryRepository {
 		sqlSession.delete("category.deleteByCategory",no);
 	}
 
-	public void findByCategoryNo(Long pathNo1) {
-		sqlSession.selectOne("category.findByCategoryNo",pathNo1);
+	public List<CategoryVo> countPostNo(String id) {
+		return sqlSession.selectList("category.countPostNo",id);
 	}
 }
