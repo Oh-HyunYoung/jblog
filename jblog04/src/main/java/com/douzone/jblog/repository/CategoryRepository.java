@@ -34,9 +34,4 @@ public class CategoryRepository {
 	public void findByCategoryNo(Long pathNo1) {
 		sqlSession.selectOne("category.findByCategoryNo",pathNo1);
 	}
-	
-	public CategoryVo CountPostCategoryNo(CategoryVo vo) {
-		return sqlSession.selectOne("category.CountPostCategoryNo",vo);
-	}
-	
 }

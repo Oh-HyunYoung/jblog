@@ -33,10 +33,4 @@
 		]]>
 	</select>
 	
-	 	<select id="CountPostCategoryNo" resultType="categoryvo" parameterType="Long">
-		<![CDATA[
-		select * from post a, category c where a.category_no = c.no and a.category_no = #{no}
-		]]>
-	</select>
-	
 </mapper>

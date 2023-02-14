@@ -30,9 +30,6 @@ public class CategoryService {
 
 	public void findCategoryNo(Long pathNo1) {
 		categoryRepository.findByCategoryNo(pathNo1);
-	}
-	
-	public CategoryVo CountPostCategoryNo(CategoryVo vo) {
-		return categoryRepository.CountPostCategoryNo(vo);
+		
 	}
 }

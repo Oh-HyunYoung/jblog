@@ -125,14 +125,12 @@ public class BlogController {
 	// 카테고리 리스트 불러오기
 	@RequestMapping(value="/admin-category", method=RequestMethod.GET)
 	public String category(
-			@PathVariable("id") String id, CategoryVo vo,
+			@PathVariable("id") String id, 
 			Model model) {
 		// blog title을 위해 넣어줌
 		BlogVo blogvo = blogService.findBlog(id);
 		model.addAttribute("blogvo",blogvo);
 		
-//		CategoryVo cpovo = categoryService.CountPostCategoryNo(vo);
-//		model.addAttribute("cpovo",cpovo);
 		List<CategoryVo> list = categoryService.findCategory(id);
 		model.addAttribute("list",list);
 		model.addAttribute("id",id);
@@ -151,7 +149,8 @@ public class BlogController {
 	// 카테고리 삭제
 	@RequestMapping(value="/admin-category/delete/{no}")
 	public String delete(@PathVariable("no") Long no, 
-			@PathVariable("id") String id) {
+			@PathVariable("id") String id,
+			Model model) {
 		categoryService.deleteCategory(no);
 		return "redirect:/"+ id + "/blog/admin-category";
 	}
