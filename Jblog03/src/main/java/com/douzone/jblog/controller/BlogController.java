@@ -149,7 +149,8 @@ public class BlogController {
 	// 카테고리 삭제
 	@RequestMapping(value="/admin-category/delete/{no}")
 	public String delete(@PathVariable("no") Long no, 
-			@PathVariable("id") String id) {
+			@PathVariable("id") String id,
+			Model model) {
 		categoryService.deleteCategory(no);
 		return "redirect:/"+ id + "/blog/admin-category";
 	}
