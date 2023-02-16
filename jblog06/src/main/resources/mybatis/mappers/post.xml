@@ -1,0 +1,27 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="post">
+	<insert id="insertPost" parameterType="postvo">
+		<![CDATA[
+		insert into post values(null, #{title}, #{contents}, now(), #{category_no})
+		]]>
+	</insert>
+	
+	<select id="findAll" resultType="postvo" >
+		<![CDATA[
+		select * from post 
+		]]>
+	</select>
+	
+	<select id="findbyno" parameterType="Long" resultType="postvo" >
+		<![CDATA[
+		select * from post where category_no = #{categoryNo}
+		]]>
+	</select>
+	
+	<select id="Postfindbyno" parameterType="Long" resultType="postvo" >
+		<![CDATA[
+		select * from post where no = #{postNo}
+		]]>
+	</select>
+	
+</mapper>
