@@ -42,9 +42,7 @@ public class UserController {
 		return "user/login";
 	}
 	
-	@RequestMapping("/index")
-	public void index() {
-	}
+
 	
 	
 
