@@ -16,18 +16,5 @@ import com.douzone.jblog.config.web.SecurityConfig;
 @ComponentScan({"com.douzone.jblog.controller"})
 @Import({MvcConfig.class, SecurityConfig.class, MessageSourceConfig.class, FileuploadConfig.class})
 public class WebConfig implements WebMvcConfigurer {
-	
-//	//Site Inteceptor
-//	@Bean
-//	public HandlerInterceptor siteInterceptor() {
-//		return new SiteInterceptor();
-//	}
-//
-//	@Override
-//	public void addInterceptors(InterceptorRegistry registry) {
-//		registry.addInterceptor(siteInterceptor())
-//				.addPathPatterns("/**");
-//	}
-//	
 
 }

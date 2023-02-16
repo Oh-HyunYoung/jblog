@@ -35,9 +35,11 @@
 						<td>${vo.p_count }</td>
 						<td>카테고리를 지정하지 않은 경우</td>
 						<c:choose>
-							<c:when test="${list.size() > 1 && vo.p_count < 1}">
-								<td><a href="${pageContext.request.contextPath}/${id}/blog/admin-category/delete/${vo.no}" class="del">
-								<img src="${pageContext.request.contextPath}/assets/images/delete.jpg" class="del"></a></td>
+							<c:when test="${list.size() > 1 && vo.p_count < 1}">						
+							<td>
+								<a href="${pageContext.request.contextPath}/${id}/blog/admin-category/delete/${vo.no}">
+								<img src="${pageContext.request.contextPath}/assets/images/delete.jpg">
+								</a></td>
 							</c:when>
 							<c:otherwise>
 						   <td>&nbsp;</td>
