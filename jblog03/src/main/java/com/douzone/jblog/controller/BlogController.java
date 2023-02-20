@@ -53,6 +53,7 @@ public class BlogController {
 			Long categoryNo = cno.get();
 			Long postNo = pno.get();
 			
+			
 			model.addAttribute("blogvo",blogvo);
 			model.addAttribute("id",id);
 			

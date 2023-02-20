@@ -11,7 +11,7 @@
 				</c:when>
 				<c:otherwise>
 					<li><a href="${pageContext.request.contextPath }/${id}/blog/main">메인화면</a></li>
-					<li><a href="${pageContext.request.contextPath }/index">로그아웃</a></li>
+					<li><a href="${pageContext.request.contextPath }/user/logout">로그아웃</a></li>
 					<c:if test="${authUser.id == id } ">
 					<li><a href="${pageContext.request.contextPath }/${id}/blog/admin-basic">블로그 관리</a></li>
 					</c:if>

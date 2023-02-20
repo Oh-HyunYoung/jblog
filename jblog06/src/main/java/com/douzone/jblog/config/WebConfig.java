@@ -34,6 +34,6 @@ public class WebConfig implements WebMvcConfigurer {
 		
 		registry
 			.addInterceptor(logoutInterceptor())
-			.addPathPatterns("/index");
+			.addPathPatterns("/user/logout");
 	}
 }
